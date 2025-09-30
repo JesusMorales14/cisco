@@ -13,3 +13,48 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Para Chrome, Safari y Opera */
   }
+
+  /* ======= Estilos galería ======= */
+.main-img {
+  transition: transform .18s ease;
+}
+.main-img:focus {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+}
+
+.thumbnail {
+  transition: box-shadow .12s, border-color .12s;
+}
+.thumbnail img {
+  display: block;
+}
+.thumbnail.active {
+  border-color: #2563eb;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+}
+
+/* Modal */
+#image-modal img {
+  max-width: 95vw;
+  max-height: 90vh;
+}
+
+/* Scroll miniatura */
+.product-gallery .overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+@keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .animate-slideInLeft {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
