@@ -140,3 +140,49 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+  const STORAGE_KEY = "selectedCategory";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedCategory = localStorage.getItem(STORAGE_KEY) || "all";
+    filterProducts(savedCategory);
+  });
+
+  function filterProducts(category) {
+    const products = document.querySelectorAll(".product-item");
+    const buttons = document.querySelectorAll(".filter-btn");
+    const dropdown = document.querySelector("select");
+
+    // Se muestran o se ocultan los productos
+    products.forEach((product) => {
+      if (category === "all" || product.classList.contains(category)) {
+        product.style.display = "block";
+      } else {
+        product.style.display = "none";
+      }
+    });
+
+    // Se guardan las categorías en el localStorage
+    localStorage.setItem(STORAGE_KEY, category);
+
+    buttons.forEach((btn) => {
+      btn.classList.remove("bg-blue-500", "text-white");
+      btn.classList.add("bg-gray-200");
+    });
+
+    // Solo se muestra el botón seleccionado
+    const activeBtn = Array.from(buttons).find((btn) =>
+      btn.getAttribute("onclick").includes(category)
+    );
+    if (activeBtn) {
+      activeBtn.classList.add("bg-blue-500", "text-white");
+      activeBtn.classList.remove("bg-gray-200");
+    }
+
+    // Se sincroniza el filtro para seleccionar
+    if (dropdown) {
+      dropdown.value = category;
+    }
+  }
+
+

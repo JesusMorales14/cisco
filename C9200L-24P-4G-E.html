@@ -950,24 +950,82 @@
         </div>
       </div>
 
-      <!-- PRODUCTOS SIMILARES A ESTE  -->
-      <section class="py-8 bg-gray-50">
+      <!-- SECCIÓN ÚNICA DE PRODUCTOS FILTRABLES -->
+      <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4 max-w-6xl">
           <!-- Encabezado -->
           <div class="text-center mb-8">
             <h2
               class="text-2xl md:text-3xl font-bold text-white bg-[#049FD9] py-4 px-6 rounded-lg shadow-md inline-block"
             >
-              También Disponible: Cisco Catalyst 9200 en stock
+              ¡También Disponible!
             </h2>
           </div>
 
-          <!-- Grid de productos -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Producto 1 -->
+          <!-- BOTONES DE FILTRO (solo en pantallas medianas en adelante) -->
+          <div class="hidden sm:flex flex-wrap justify-center gap-4 mb-8">
+            <button
+              onclick="filterProducts('all', event)"
+              class="filter-btn bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            >
+              Todos
+            </button>
+            <button
+              onclick="filterProducts('catalyst', event)"
+              class="filter-btn bg-gray-200 px-4 py-2 rounded-lg hover:bg-blue-400"
+            >
+              Cisco Catalyst 9200
+            </button>
+            <button
+              onclick="filterProducts('cat6', event)"
+              class="filter-btn bg-gray-200 px-4 py-2 rounded-lg hover:bg-blue-400"
+            >
+              Cables Cat 6
+            </button>
+            <button
+              onclick="filterProducts('cat6a', event)"
+              class="filter-btn bg-gray-200 px-4 py-2 rounded-lg hover:bg-blue-400"
+            >
+              Cables Cat 6A
+            </button>
+            <button
+              onclick="filterProducts('patchcordCat6', event)"
+              class="filter-btn bg-gray-200 px-4 py-2 rounded-lg hover:bg-blue-400"
+            >
+              Patch Cord UTP Cat 6 AMP
+            </button>
+            <button
+              onclick="filterProducts('patchcordCat6A', event)"
+              class="filter-btn bg-gray-200 px-4 py-2 rounded-lg hover:bg-blue-400"
+            >
+              Patch Cord UTP Cat 6A AMP
+            </button>
+          </div>
+
+          <!-- DROPDOWN (solo en pantallas pequeñas) -->
+          <div class="sm:hidden mb-8 flex justify-center">
+            <select
+              onchange="filterProducts(this.value, event)"
+              class="w-3/4 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+            >
+              <option value="all">Todos</option>
+              <option value="catalyst">Cisco Catalyst 9200</option>
+              <option value="cat6">Cables Cat 6</option>
+              <option value="cat6a">Cables Cat 6A</option>
+              <option value="patchcordCat6">Patch Cord UTP Cat 6 AMP</option>
+              <option value="patchcordCat6A">Patch Cord UTP Cat 6A AMP</option>
+            </select>
+          </div>
+
+          <!-- GRID DE PRODUCTOS -->
+          <div
+            id="product-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <!-- ====== CATALYST 1 ====== -->
             <a
               href="https://web.netperu100.com/cisco/catalyst/C9200L-24T-4G-E.html"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              class="product-item catalyst group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -976,15 +1034,13 @@
                   <img
                     src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4G-E_front.jpg"
                     alt="Switch Cisco C9200L-24T-4G-E"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <div class="border-t pt-4">
-                  <div class="flex justify-between flex-col items-center mb-2">
-                    <h3 class="text-lg font-bold text-gray-800">
-                      C9200L-24T-4G-E
-                    </h3>
-                  </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    C9200L-24T-4G-E
+                  </h3>
                   <p
                     class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
                   >
@@ -992,17 +1048,16 @@
                     con 24 puertos Gigabit, 04 puertos para fibra SFP, Stacking
                     hasta 08 equipos, Rackeable, CISCO C9200L-24T-4G-E
                   </p>
-                  <div class="text-center mt-6 text-blue-600 font-semibold">
+                  <div class="mt-6 text-blue-600 font-semibold">
                     Ver Producto
                   </div>
                 </div>
               </div>
             </a>
-
-            <!-- Producto 2 -->
+            <!-- ====== CATALYST 2 ====== -->
             <a
               href="https://web.netperu100.com/cisco/catalyst/C9200L-24P-4G-E.html"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              class="product-item catalyst group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1011,15 +1066,13 @@
                   <img
                     src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24P-4G-E_front.jpg"
                     alt="Switch Cisco WS-C9200L-24P-4G-E"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <div class="border-t pt-4">
-                  <div class="flex justify-between flex-col items-center mb-2">
-                    <h3 class="text-lg font-bold text-gray-800">
-                      C9200L-24P-4G-E
-                    </h3>
-                  </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    C9200L-24P-4G-E
+                  </h3>
                   <p
                     class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
                   >
@@ -1028,16 +1081,16 @@
                     SFP, Stacking hasta 08 equipos, Rackeable, CISCO
                     C9200L-24P-4G-E
                   </p>
-                  <div class="text-center mt-6 text-blue-600 font-semibold">
+                  <div class="mt-6 text-blue-600 font-semibold">
                     Ver Producto
                   </div>
                 </div>
               </div>
             </a>
-            <!-- Producto 3 -->
+            <!-- ====== CATALYST 3 ====== -->
             <a
               href="https://web.netperu100.com/cisco/catalyst/C9200L-24T-4X-E.html"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              class="product-item catalyst group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1046,15 +1099,13 @@
                   <img
                     src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4X-E_front.jpg"
                     alt="Switch Cisco C9200L-24T-4X-E"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <div class="border-t pt-4">
-                  <div class="flex justify-between flex-col items-center mb-2">
-                    <h3 class="text-lg font-bold text-gray-800">
-                      C9200L-24T-4X-E
-                    </h3>
-                  </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    C9200L-24T-4X-E
+                  </h3>
                   <p
                     class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
                   >
@@ -1062,17 +1113,16 @@
                     con 24 puertos Gigabit, 04 puertos 10G para fibra SFP+,
                     Stacking hasta 08 equipos, Rackeable, CISCO C9200L-24T-4X-E
                   </p>
-                  <div class="text-center mt-6 text-blue-600 font-semibold">
+                  <div class="mt-6 text-blue-600 font-semibold">
                     Ver Producto
                   </div>
                 </div>
               </div>
             </a>
-
-            <!-- Producto 4 -->
+            <!-- ====== CATALYST 4 ====== -->
             <a
               href="https://web.netperu100.com/cisco/catalyst/C9200L-24P-4X-E.html"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              class="product-item catalyst group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1081,15 +1131,13 @@
                   <img
                     src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24P-4X-E_front.jpg"
                     alt="Switch Cisco WS-C9200L-24P-4X-E"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <div class="border-t pt-4">
-                  <div class="flex justify-between flex-col items-center mb-2">
-                    <h3 class="text-lg font-bold text-gray-800">
-                      C9200L-24P-4X-E
-                    </h3>
-                  </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    C9200L-24P-4X-E
+                  </h3>
                   <p
                     class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
                   >
@@ -1098,17 +1146,16 @@
                     fibra SFP+, Stacking hasta 08 equipos, Rackeable, CISCO
                     C9200L-24P-4X-E
                   </p>
-                  <div class="text-center mt-6 text-blue-600 font-semibold">
+                  <div class="mt-6 text-blue-600 font-semibold">
                     Ver Producto
                   </div>
                 </div>
               </div>
             </a>
-
-            <!-- Producto 5 -->
+            <!-- ====== CATALYST 5 ====== -->
             <a
               href="https://web.netperu100.com/cisco/catalyst/C9200L-48T-4G-E.html"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              class="product-item catalyst group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1117,15 +1164,13 @@
                   <img
                     src="https://web.netperu100.com/cisco/catalyst/images/C9200L-48T-4G-E_front.jpg"
                     alt="Switch Cisco C9200L-48T-4G-E"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <div class="border-t pt-4">
-                  <div class="flex justify-between flex-col items-center mb-2">
-                    <h3 class="text-lg font-bold text-gray-800">
-                      C9200L-48T-4G-E
-                    </h3>
-                  </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    C9200L-48T-4G-E
+                  </h3>
                   <p
                     class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
                   >
@@ -1133,17 +1178,16 @@
                     con 48 puertos Gigabit, 04 puertos para fibra SFP, Stacking
                     hasta 08 equipos, Rackeable, CISCO C9200L-48T-4G-E
                   </p>
-                  <div class="text-center mt-6 text-blue-600 font-semibold">
+                  <div class="mt-6 text-blue-600 font-semibold">
                     Ver Producto
                   </div>
                 </div>
               </div>
             </a>
-
-            <!-- Producto 6 -->
+            <!-- ====== CATALYST 6 ====== -->
             <a
               href="https://web.netperu100.com/cisco/catalyst/C9200L-48P-4G-E.html"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              class="product-item catalyst group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1152,15 +1196,13 @@
                   <img
                     src="https://web.netperu100.com/cisco/catalyst/images/C9200L-48P-4G-E_front.jpg"
                     alt="Switch Cisco WS-C9200L-48P-4G-E"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <div class="border-t pt-4">
-                  <div class="flex justify-between flex-col items-center mb-2">
-                    <h3 class="text-lg font-bold text-gray-800">
-                      C9200L-48P-4G-E
-                    </h3>
-                  </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    C9200L-48P-4G-E
+                  </h3>
                   <p
                     class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
                   >
@@ -1169,32 +1211,17 @@
                     SFP, Stacking hasta 08 equipos, Rackeable, CISCO
                     C9200L-48P-4G-E
                   </p>
-                  <div class="text-center mt-6 text-blue-600 font-semibold">
+                  <div class="mt-6 text-blue-600 font-semibold">
                     Ver Producto
                   </div>
                 </div>
               </div>
             </a>
-          </div>
-        </div>
-      </section>
-      <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-6xl">
-          <!-- Encabezado -->
-          <div class="text-center mb-12">
-            <h2
-              class="text-2xl md:text-3xl font-bold text-white bg-[#049FD9] py-4 px-6 rounded-lg shadow-md inline-block"
-            >
-              También Disponible: Cables de Red UTP Cat 6 AMP
-            </h2>
-          </div>
 
-          <!-- Grid de productos 2x2 -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-            <!-- Producto 1 -->
+            <!-- ====== CABLES CAT 6 - 1 ====== -->
             <a
-              href="#"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              href="https://www.ds3comunicaciones.com/AMP/6-1427200-4.html"
+              class="product-item cat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1203,7 +1230,7 @@
                   <img
                     src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
                     alt="Cable UTP AMP Categoria 6 Chaqueta CMR"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
                 <div class="border-t pt-4 text-center">
@@ -1220,10 +1247,10 @@
               </div>
             </a>
 
-            <!-- Producto 2 -->
+            <!-- ====== CABLES CAT 6 - 2 ====== -->
             <a
-              href="#"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              href="https://www.ds3comunicaciones.com/AMP/1427254-4.html"
+              class="product-item cat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1232,7 +1259,7 @@
                   <img
                     src="https://www.ds3comunicaciones.com/AMP/images/1427254-4-1.jpg"
                     alt="Cable UTP AMP Categoria 6 Chaqueta CM"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
                 <div class="border-t pt-4 text-center">
@@ -1249,10 +1276,10 @@
               </div>
             </a>
 
-            <!-- Producto 3 -->
+            <!-- ====== CABLES CAT 6 - 3 ====== -->
             <a
-              href="#"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              href="https://www.ds3comunicaciones.com/AMP/1859345-2.html"
+              class="product-item cat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1260,8 +1287,8 @@
                 >
                   <img
                     src="https://www.ds3comunicaciones.com/AMP/images/1859218-2.jpg"
-                    alt="Cable UTP AMP Categoria 6 Chaqueta CM"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    alt="Cable UTP AMP Categoria 6 Chaqueta LSZH"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
                 <div class="border-t pt-4 text-center">
@@ -1278,10 +1305,10 @@
               </div>
             </a>
 
-            <!-- Producto 4 -->
+            <!-- ====== CABLES CAT 6 - 4 ====== -->
             <a
-              href="#"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              href="https://www.ds3comunicaciones.com/AMP/219585-2.html"
+              class="product-item cat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1289,8 +1316,8 @@
                 >
                   <img
                     src="https://www.ds3comunicaciones.com/AMP/images/219585-2_front.jpg"
-                    alt="Cable UTP AMP Categoria 6 Chaqueta LSZH"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    alt="Cable UTP Cat 6 de 23 AWG, CHAQUETA LSZH marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
                 <div class="border-t pt-4 text-center">
@@ -1306,27 +1333,11 @@
                 </div>
               </div>
             </a>
-          </div>
-        </div>
-      </section>
 
-      <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-6xl">
-          <!-- Encabezado -->
-          <div class="text-center mb-12">
-            <h2
-              class="text-2xl md:text-3xl font-bold text-white bg-[#049FD9] py-4 px-6 rounded-lg shadow-md inline-block"
-            >
-              También Disponible: Cables de Red UTP Cat 6A AMP
-            </h2>
-          </div>
-
-          <!-- Grid de productos -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-            <!-- Producto 1 -->
+            <!-- ====== CABLES CAT 6A - 1 ====== -->
             <a
-              href="#"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              href="https://www.ds3comunicaciones.com/AMP/1859218-2.html"
+              class="product-item cat6a group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1334,8 +1345,8 @@
                 >
                   <img
                     src="https://www.ds3comunicaciones.com/AMP/images/1859218-2.jpg"
-                    alt="Cable UTP AMP Categoria 6A Apantallado Chaqueta LSZH"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    alt="Cable UTP AMP Categoria 6A"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
                 <div class="border-t pt-4 text-center">
@@ -1343,7 +1354,7 @@
                   <p
                     class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
                   >
-                    Cable UTP AMP Categoria 6A Apantallado Chaqueta LSZH
+                    Cable UTP AMP Categoria 6A Apantallado LSZH
                   </p>
                   <div class="mt-6 text-blue-600 font-semibold">
                     Ver Producto
@@ -1352,10 +1363,10 @@
               </div>
             </a>
 
-            <!-- Producto 2 -->
+            <!-- ====== CABLES CAT 6A - 2 ====== -->
             <a
-              href="#"
-              class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500"
+              href="https://www.ds3comunicaciones.com/AMP/1859381-2.html"
+              class="product-item cat6a group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
             >
               <div class="p-5 flex flex-col h-full">
                 <div
@@ -1363,9 +1374,8 @@
                 >
                   <img
                     src="https://www.ds3comunicaciones.com/AMP/images/Caja.jpg"
-                    alt="	
-Cable UTP AMP Categoria 6A Chaqueta LSZH IEC-60332-3"
-                    class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    alt="Cable UTP AMP Categoria 6A Chaqueta LSZH IEC-60332-3"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
                 <div class="border-t pt-4 text-center">
@@ -1374,6 +1384,238 @@ Cable UTP AMP Categoria 6A Chaqueta LSZH IEC-60332-3"
                     class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
                   >
                     Cable UTP AMP Categoria 6A Chaqueta LSZH IEC-60332-3
+                  </p>
+                  <div class="mt-6 text-blue-600 font-semibold">
+                    Ver Producto
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- ====== Patch Cord  UTP Cat 6 AMP - 1 ====== -->
+            <a
+              href="https://www.ds3comunicaciones.com/AMP/219886-3.html"
+              class="product-item patchcordCat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+            >
+              <div class="p-5 flex flex-col h-full">
+                <div
+                  class="flex-grow flex items-center justify-center mb-4 h-40"
+                >
+                  <img
+                    src="https://www.ds3comunicaciones.com/AMP/images/219886-3_front.jpg"
+                    alt="Patch Cord Cat 6 de 0.90 metros, marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">219886-3</h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
+                  >
+                    Patch Cord Cat 6 de 0.90 metros, marca AMP
+                  </p>
+                  <div class="mt-6 text-blue-600 font-semibold">
+                    Ver Producto
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- ====== Patch Cord  UTP Cat 6 AMP - 2 ====== -->
+            <a
+              href="https://www.ds3comunicaciones.com/AMP/219886-4.html"
+              class="product-item patchcordCat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+            >
+              <div class="p-5 flex flex-col h-full">
+                <div
+                  class="flex-grow flex items-center justify-center mb-4 h-40"
+                >
+                  <img
+                    src="https://www.ds3comunicaciones.com/AMP/images/219886-6_front.jpg"
+                    alt="Patch Cord Cat 6 de 1.20 metros, marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">219886-4</h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
+                  >
+                    Patch Cord Cat 6 de 1.20 metros, marca AMP
+                  </p>
+                  <div class="mt-6 text-blue-600 font-semibold">
+                    Ver Producto
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- ====== Patch Cord  UTP Cat 6 AMP - 3 ====== -->
+            <a
+              href="https://www.ds3comunicaciones.com/AMP/219886-6.html"
+              class="product-item patchcordCat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+            >
+              <div class="p-5 flex flex-col h-full">
+                <div
+                  class="flex-grow flex items-center justify-center mb-4 h-40"
+                >
+                  <img
+                    src="https://www.ds3comunicaciones.com/AMP/images/219886-6_front.jpg"
+                    alt="Patch Cord Cat 6 de 1.80 metros, marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">219886-6</h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
+                  >
+                    Patch Cord Cat 6 de 1.80 metros, marca AMP
+                  </p>
+                  <div class="mt-6 text-blue-600 font-semibold">
+                    Ver Producto
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- ====== Patch Cord  UTP Cat 6 AMP - 4 ====== -->
+            <a
+              href="https://www.ds3comunicaciones.com/AMP/219886-7.html"
+              class="product-item patchcordCat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+            >
+              <div class="p-5 flex flex-col h-full">
+                <div
+                  class="flex-grow flex items-center justify-center mb-4 h-40"
+                >
+                  <img
+                    src="https://www.ds3comunicaciones.com/AMP/images/219886-6_front.jpg"
+                    alt="Patch Cord Cat 6 de 2.10 metros, marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">219886-7</h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
+                  >
+                    Patch Cord Cat 6 de 2.10 metros, marca AMP
+                  </p>
+                  <div class="mt-6 text-blue-600 font-semibold">
+                    Ver Producto
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- ====== Patch Cord  UTP Cat 6 AMP - 5 ====== -->
+            <a
+              href="https://www.ds3comunicaciones.com/AMP/1-219886-0.html"
+              class="product-item patchcordCat6 group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+            >
+              <div class="p-5 flex flex-col h-full">
+                <div
+                  class="flex-grow flex items-center justify-center mb-4 h-40"
+                >
+                  <img
+                    src="https://www.ds3comunicaciones.com/AMP/images/219886-6_front.jpg"
+                    alt="Patch Cord Cat 6 de 3.00 metros, marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">1-219886-0</h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
+                  >
+                    Patch Cord Cat 6 de 3.00 metros, marca AMP
+                  </p>
+                  <div class="mt-6 text-blue-600 font-semibold">
+                    Ver Producto
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- ====== Patch Cord  UTP Cat 6A AMP - 1 ====== -->
+            <a
+              href="https://www.ds3comunicaciones.com/AMP/1711816-1.html"
+              class="product-item patchcordCat6A group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+            >
+              <div class="p-5 flex flex-col h-full">
+                <div
+                  class="flex-grow flex items-center justify-center mb-4 h-40"
+                >
+                  <img
+                    src="https://www.ds3comunicaciones.com/AMP/images/1711816-1_front.jpg"
+                    alt="Patch Cord Cat 6A de 1.00 metro, marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">1711816-1</h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
+                  >
+                    Patch Cord Cat 6A de 1.00 metro, marca AMP
+                  </p>
+                  <div class="mt-6 text-blue-600 font-semibold">
+                    Ver Producto
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- ====== Patch Cord  UTP Cat 6A AMP - 2 ====== -->
+            <a
+              href="https://www.ds3comunicaciones.com/AMP/1711816-2.html"
+              class="product-item patchcordCat6A group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+            >
+              <div class="p-5 flex flex-col h-full">
+                <div
+                  class="flex-grow flex items-center justify-center mb-4 h-40"
+                >
+                  <img
+                    src="https://www.ds3comunicaciones.com/AMP/images/1711816-2_front.jpg"
+                    alt="Patch Cord Cat 6A de 2.00 metros, marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">1711816-2</h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
+                  >
+                    Patch Cord Cat 6A de 2.00 metros, marca AMP
+                  </p>
+                  <div class="mt-6 text-blue-600 font-semibold">
+                    Ver Producto
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- ====== Patch Cord  UTP Cat 6A AMP - 3 ====== -->
+            <a
+              href="https://www.ds3comunicaciones.com/AMP/1711816-3.html"
+              class="product-item patchcordCat6A group bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+            >
+              <div class="p-5 flex flex-col h-full">
+                <div
+                  class="flex-grow flex items-center justify-center mb-4 h-40"
+                >
+                  <img
+                    src="https://www.ds3comunicaciones.com/AMP/images/1711816-3_front.jpg"
+                    alt="Patch Cord Cat 6A de 3.00 metros, marca AMP"
+                    class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <div class="border-t pt-4 text-center">
+                  <h3 class="text-lg font-bold text-gray-800">1711816-3</h3>
+                  <p
+                    class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2"
+                  >
+                    Patch Cord Cat 6A de 3.00 metros, marca AMP
                   </p>
                   <div class="mt-6 text-blue-600 font-semibold">
                     Ver Producto
