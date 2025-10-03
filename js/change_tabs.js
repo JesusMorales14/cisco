@@ -1,15 +1,13 @@
-// Espera a que el DOM esté listo para inicializar las galerías
 document.addEventListener('DOMContentLoaded', () => {
   initProductGalleries();
 });
 
 function initProductGalleries() {
-  // Recorre todas las galerías de productos de la página
   document.querySelectorAll('.product-gallery').forEach(gallery => {
     const mainImg = gallery.querySelector('#img_main'); // Imagen principal mostrada
-    const thumbnails = Array.from(gallery.querySelectorAll('.thumbnail')); // Miniaturas asociadas
-    const prevBtn = gallery.querySelector('#prev-btn'); // Botón de navegación atrás
-    const nextBtn = gallery.querySelector('#next-btn'); // Botón de navegación adelante
+    const thumbnails = Array.from(gallery.querySelectorAll('.thumbnail')); 
+    const prevBtn = gallery.querySelector('#prev-btn'); // Botón de navegación izquierda
+    const nextBtn = gallery.querySelector('#next-btn'); // Botón de navegación derecha
 
     // Referencias al modal para ver imágenes en grande
     const modal = document.getElementById('image-modal');
@@ -18,15 +16,14 @@ function initProductGalleries() {
     const modalPrev = document.getElementById('modal-prev');
     const modalNext = document.getElementById('modal-next');
 
-    // Lista de rutas de las imágenes (desde dataset o src de <img>)
     const images = thumbnails.map(t => t.dataset.src || (t.querySelector('img') && t.querySelector('img').src));
-    if (!images.length) return; // Si no hay imágenes, se corta aquí
+    if (!images.length) return;
 
-    let currentIndex = 0; // Índice de la imagen activa
+    let currentIndex = 0;
 
-    setMainImage(0); // Se arranca mostrando la primera imagen
+    setMainImage(0); // Se muestra la primera imagen
 
-    // Eventos para cambiar de imagen desde las miniaturas
+    // La imagen cambia desde las miniaturas
     thumbnails.forEach((btn, idx) => {
       btn.addEventListener('click', () => setMainImage(idx));
       btn.addEventListener('keydown', (e) => {
@@ -52,7 +49,6 @@ function initProductGalleries() {
     if (modalPrev) modalPrev.addEventListener('click', () => navigateModal(-1));
     if (modalNext) modalNext.addEventListener('click', () => navigateModal(1));
 
-    // Cierra el modal si se hace click fuera de la imagen
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
     // Controles de teclado para el modal
@@ -64,7 +60,7 @@ function initProductGalleries() {
       }
     });
 
-    // Cambia la imagen principal y actualiza el estado de la miniatura activa
+    // Cambia la imagen principal y actualiza el estado de la miniatura seleccionada
     function setMainImage(idx) {
       currentIndex = idx;
       mainImg.src = images[idx];
@@ -73,7 +69,6 @@ function initProductGalleries() {
       updateActiveThumbnail(idx);
     }
 
-    // Marca la miniatura activa y la centra en la vista si es necesario
     function updateActiveThumbnail(idx) {
       thumbnails.forEach((t, i) => {
         t.classList.toggle('active', i === idx);
@@ -111,8 +106,7 @@ function initProductGalleries() {
   });
 }
 
-// --- Script del acordeón ---
-// Maneja la apertura y cierre de secciones tipo FAQ
+// Acordeón
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll("[data-accordion-target]");
 
@@ -131,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         b.querySelector("svg").classList.remove("rotate-180");
       });
 
-      // Si estaba cerrada, abre la sección seleccionada
+      // Si estaba cerrada, se abre la sección seleccionada
       if (!expanded) {
         content.style.maxHeight = content.scrollHeight + "px";
         btn.setAttribute("aria-expanded", "true");
